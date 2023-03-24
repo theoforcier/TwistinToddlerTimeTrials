@@ -10,12 +10,14 @@ public class Move : MonoBehaviour
     [SerializeField, Range(0f, 100f)] private float maxAirAcceleration = 20f;
     [SerializeField, Range(0.05f, 0.5f)] private float wallStickTime = 0.25f;
 
-    private Vector2 direction, desiredVelocity, velocity;
+    private Vector2 direction, velocity;
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer render;
     private CollisionData collisionData;
     private WallMovement wallMovement;
+
+    public Vector2 desiredVelocity;
 
     private float maxSpeedChange, acceleration, wallStickCounter;
     private bool isGrounded, facingRight=true;

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Death : MonoBehaviour
 {
-    private bool isDead = false;
+    public bool isDead = false;
     private Rigidbody2D rb;
     private Animator animator;
 

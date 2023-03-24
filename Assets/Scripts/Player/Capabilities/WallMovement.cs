@@ -20,8 +20,10 @@ public class WallMovement : MonoBehaviour
     private SpriteRenderer render;
 
     private Vector2 velocity;
-    private bool onWall, onGround, desiredJump, wallAnimation;
+    private bool onGround, desiredJump, wallAnimation;
     private float wallDirectionX;
+
+    public bool onWall;
 
     // Start is called before the first frame update
     private void Start()

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEditor;
 
 public class WinMenu : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class WinMenu : MonoBehaviour
     public TextMeshProUGUI timeText;
     public GameObject trophy;
     public string prefName;
+    public GameObject Player;
 
     public void Update()
     {
@@ -23,6 +25,10 @@ public class WinMenu : MonoBehaviour
             if (Timer.currentTime < PlayerPrefs.GetFloat(prefName) || PlayerPrefs.GetFloat(prefName) == 0)
             {
                 PlayerPrefs.SetFloat(prefName, Timer.currentTime);
+                Player.GetComponent<GhostRecorder>().ghost.isRecording = false;
+                AssetDatabase.Refresh();
+                AssetDatabase.DeleteAsset("Assets/ScriptableObjects/GhostTrials/" + prefName + ".asset");
+                AssetDatabase.CopyAsset("Assets/ScriptableObjects/GhostTrials/CurrentRun.asset", "Assets/ScriptableObjects/GhostTrials/" + prefName + ".asset");
                 trophy.SetActive(true);
             }
 

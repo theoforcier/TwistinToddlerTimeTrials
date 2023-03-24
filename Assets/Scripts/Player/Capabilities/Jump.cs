@@ -20,7 +20,8 @@ public class Jump : MonoBehaviour
     private int jumpPhase;
     private float defaultGravityScale, jumpSpeed, coyoteCounter, jumpBufferCounter;
 
-    private bool desiredJump, isGrounded, isJumping;
+    private bool desiredJump, isGrounded;
+    public bool isJumping;
 
     private void Awake()
     {
