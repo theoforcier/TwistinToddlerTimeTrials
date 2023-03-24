@@ -487,7 +487,7 @@ MonoBehaviour:
   winMenuUI: {fileID: 1417864069}
   timeText: {fileID: 1435591512}
   trophy: {fileID: 77751258}
-  prefName: Level1
+  prefName: Experiment
   Player: {fileID: 1402102812}
 --- !u!4 &66461297 stripped
 Transform:
@@ -4266,7 +4266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 1693890162}
   bestText: {fileID: 1391948720}
-  prefName: Level1
+  prefName: Experiment
 --- !u!114 &1309633123
 MonoBehaviour:
   m_ObjectHideFlags: 0

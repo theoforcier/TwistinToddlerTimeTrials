@@ -27,8 +27,10 @@ public class WinMenu : MonoBehaviour
                 PlayerPrefs.SetFloat(prefName, Timer.currentTime);
                 Player.GetComponent<GhostRecorder>().ghost.isRecording = false;
                 AssetDatabase.Refresh();
+
+                Ghost newGhost = Instantiate(Player.GetComponent<GhostRecorder>().ghost);
                 AssetDatabase.DeleteAsset("Assets/ScriptableObjects/GhostTrials/" + prefName + ".asset");
-                AssetDatabase.CopyAsset("Assets/ScriptableObjects/GhostTrials/CurrentRun.asset", "Assets/ScriptableObjects/GhostTrials/" + prefName + ".asset");
+                AssetDatabase.CreateAsset(newGhost, "Assets/ScriptableObjects/GhostTrials/" + prefName + ".asset");
                 trophy.SetActive(true);
             }
 

@@ -10,10 +10,10 @@ public class GhostRecorder : MonoBehaviour
 
     private void Awake()
     {
-            ghost.isRecording = true;
             ghost.resetData();
             timeValue = 0;
             timer = 0;
+            ghost.isRecording = true;
     }
 
     void Update()
@@ -23,7 +23,7 @@ public class GhostRecorder : MonoBehaviour
 
         if (ghost.isRecording & timer >= 1/ghost.recordFrequency)
         {
-            ghost.timeStamp.Add(timeValue);
+            ghost.timeStamp.Add(Timer.currentTime);
             ghost.position.Add(this.transform.localPosition);
 
             // animations
