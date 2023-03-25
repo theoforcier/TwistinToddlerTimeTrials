@@ -2,18 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Death : MonoBehaviour
 {
     public bool isDead = false;
     private Rigidbody2D rb;
-    private Animator animator;
+    private Animator animator; 
+
+    public TextMeshProUGUI deathText;
+    public TextMeshProUGUI bestText;
+    public static int death;
+    public string prefName;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        bestText.text = PlayerPrefs.GetInt(prefName).ToString();
+        deathText.text = death.ToString();
     }
+
 
     private void LateUpdate()
     {
@@ -34,6 +44,10 @@ public class Death : MonoBehaviour
         if (other.gameObject.tag == "Death")
         {
             isDead = true;
+            death = death +1;
+            PlayerPrefs.SetInt("death", death);
+            
+
         }
     }
 
@@ -41,5 +55,6 @@ public class Death : MonoBehaviour
     {
         Timer.currentTime = 0f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
     }
 }
