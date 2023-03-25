@@ -10,6 +10,7 @@ public class WinMenu : MonoBehaviour
     public static bool isWin = false;
     public GameObject winMenuUI;
     public TextMeshProUGUI timeText;
+    public TextMeshProUGUI deathCount;    
     public GameObject trophy;
     public string prefName;
     public GameObject Player;
@@ -20,6 +21,7 @@ public class WinMenu : MonoBehaviour
         {
             Time.timeScale = 0f;
             timeText.text = Timer.currentTime.ToString("0.000");
+            deathCount.text = PlayerPrefs.GetInt("death").ToString();
 
             // Setting high scores
             if (Timer.currentTime < PlayerPrefs.GetFloat(prefName) || PlayerPrefs.GetFloat(prefName) == 0)
@@ -40,6 +42,8 @@ public class WinMenu : MonoBehaviour
 
     public void NextLevel()
     {
+        PlayerPrefs.SetInt("death", 0);
+        Debug.Log(PlayerPrefs.GetInt("death"));
         isWin = false;
         Timer.currentTime = 0f;
         Time.timeScale = 1f;
@@ -48,6 +52,8 @@ public class WinMenu : MonoBehaviour
 
     public void Restart()
     {
+        PlayerPrefs.SetInt("death", 0);
+        Debug.Log(PlayerPrefs.GetInt("death"));
         isWin = false;
         Timer.currentTime = 0f;
         Time.timeScale = 1f;
@@ -56,6 +62,8 @@ public class WinMenu : MonoBehaviour
 
     public void Menu()
     {
+        PlayerPrefs.SetInt("death", 0);
+         Debug.Log(PlayerPrefs.GetInt("death"));
         isWin = false;
         Timer.currentTime = 0f;
         Time.timeScale = 1f;

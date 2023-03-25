@@ -11,16 +11,13 @@ public class Death : MonoBehaviour
     private Animator animator; 
 
     public TextMeshProUGUI deathText;
-    public TextMeshProUGUI bestText;
-    public static int death;
-    public string prefName;
+    public static int death = 0;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
-        bestText.text = PlayerPrefs.GetInt(prefName).ToString();
         deathText.text = death.ToString();
     }
 
