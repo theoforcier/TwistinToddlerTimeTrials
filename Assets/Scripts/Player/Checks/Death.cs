@@ -9,9 +9,10 @@ public class Death : MonoBehaviour
     public bool isDead = false;
     private Rigidbody2D rb;
     private Animator animator; 
-
+    public GameObject deathLocation;
     public TextMeshProUGUI deathText;
     public static int death = 0;
+    public static List<Vector3> deathSpots = new List<Vector3>();
 
     private void Start()
     {
@@ -34,6 +35,8 @@ public class Death : MonoBehaviour
             animator.SetBool("isJumping", false);
             animator.SetBool("onWall", false);
             animator.SetBool("dead", true);
+
+
         }
     }
 
@@ -43,6 +46,14 @@ public class Death : MonoBehaviour
             isDead = true;
             death = death +1;
             PlayerPrefs.SetInt("death", death);
+
+            deathSpots.Add(GameObject.FindGameObjectsWithTag("Player")[0].transform.position);
+            
+            foreach( var x in deathSpots){
+                GameObject duplicate = Instantiate(deathLocation);
+                duplicate.transform.position = x;
+                duplicate.SetActive(true);
+            }
             
 
         }
