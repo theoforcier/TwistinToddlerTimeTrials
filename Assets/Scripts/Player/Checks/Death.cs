@@ -10,6 +10,7 @@ public class Death : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator; 
     public GameObject deathLocation;
+    public GameObject winScreen;
     public TextMeshProUGUI deathText;
     public static int death = 0;
     public static List<Vector3> deathSpots = new List<Vector3>();
@@ -20,6 +21,13 @@ public class Death : MonoBehaviour
         animator = GetComponent<Animator>();
 
         deathText.text = death.ToString();
+    }
+
+    private void Update () {
+        if (winScreen.activeSelf){
+            deathSpots.Clear();
+            death = 0;
+        }
     }
 
 

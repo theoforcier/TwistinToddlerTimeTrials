@@ -1528,7 +1528,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &252033038
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1546,7 +1546,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 140, y: -46}
+  m_AnchoredPosition: {x: 158, y: -46}
   m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &252033039
@@ -8875,7 +8875,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1612434820
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10732,6 +10732,10 @@ PrefabInstance:
       propertyPath: deathText
       value: 
       objectReference: {fileID: 854314020}
+    - target: {fileID: 2975670473084053652, guid: fbd8ba1d6d44d4280aa423ae458a8c67, type: 3}
+      propertyPath: winScreen
+      value: 
+      objectReference: {fileID: 1612434819}
     - target: {fileID: 2975670473084053652, guid: fbd8ba1d6d44d4280aa423ae458a8c67, type: 3}
       propertyPath: deathLocation
       value: 

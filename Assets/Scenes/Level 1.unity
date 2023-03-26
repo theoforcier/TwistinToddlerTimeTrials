@@ -2526,7 +2526,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 161, y: -36}
+  m_AnchoredPosition: {x: 176, y: -36}
   m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &662927511
@@ -6778,6 +6778,10 @@ PrefabInstance:
       propertyPath: deathText
       value: 
       objectReference: {fileID: 1351923814}
+    - target: {fileID: 2975670473084053652, guid: fbd8ba1d6d44d4280aa423ae458a8c67, type: 3}
+      propertyPath: winScreen
+      value: 
+      objectReference: {fileID: 1417864069}
     - target: {fileID: 2975670473084053652, guid: fbd8ba1d6d44d4280aa423ae458a8c67, type: 3}
       propertyPath: deathLocation
       value: 
