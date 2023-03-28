@@ -177,6 +177,7 @@ MonoBehaviour:
   maxAcceleration: 65
   maxAirAcceleration: 55
   wallStickTime: 0.25
+  desiredVelocity: {x: 0, y: 0}
 --- !u!114 &2975670473084053662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +197,7 @@ MonoBehaviour:
   upwardMovementMultiplier: 3
   coyoteTime: 0.4
   jumpBufferTime: 0.3
+  isJumping: 0
 --- !u!114 &2975670473084053648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,6 +215,7 @@ MonoBehaviour:
   wallJumpClimb: {x: 5, y: 14}
   wallJumpBounce: {x: 15, y: 13}
   wallJumpLeap: {x: 17, y: 14}
+  onWall: 0
 --- !u!114 &2975670473084053657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +240,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72523b36a35fc4e3a9fa931e1b2b7d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDead: 0
+  deathClip: {fileID: 8300000, guid: 79e20643a753f4b168a456894cbcdc17, type: 3}
+  deathLocation: {fileID: 0}
+  winScreen: {fileID: 0}
+  deathText: {fileID: 0}
 --- !u!114 &2975670473084053650
 MonoBehaviour:
   m_ObjectHideFlags: 0

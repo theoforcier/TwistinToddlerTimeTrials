@@ -9,6 +9,7 @@ public class Death : MonoBehaviour
     public bool isDead = false;
     private Rigidbody2D rb;
     private Animator animator; 
+    public AudioClip deathClip;
     public GameObject deathLocation;
     public GameObject winScreen;
     public TextMeshProUGUI deathText;
@@ -19,7 +20,6 @@ public class Death : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-
         deathText.text = death.ToString();
     }
 
@@ -54,7 +54,7 @@ public class Death : MonoBehaviour
             isDead = true;
             death = death +1;
             PlayerPrefs.SetInt("death", death);
-
+            AudioManager.instance.PlaySound(deathClip);
             deathSpots.Add(GameObject.FindGameObjectsWithTag("Player")[0].transform.position);
             
             foreach( var x in deathSpots){

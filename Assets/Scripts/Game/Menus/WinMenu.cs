@@ -14,6 +14,8 @@ public class WinMenu : MonoBehaviour
     public GameObject trophy;
     public string prefName;
     public GameObject Player;
+    public AudioClip winClip;
+    private bool clipPlayed = false;
 
     public void Update()
     {
@@ -22,6 +24,12 @@ public class WinMenu : MonoBehaviour
             Time.timeScale = 0f;
             timeText.text = Timer.currentTime.ToString("0.000");
             deathCount.text = PlayerPrefs.GetInt("death").ToString();
+
+            // Playing audio clip
+            if (!clipPlayed) {
+                AudioManager.instance.PlaySound(winClip);
+                clipPlayed = true;
+            }
 
             // Setting high scores
             if (Timer.currentTime < PlayerPrefs.GetFloat(prefName) || PlayerPrefs.GetFloat(prefName) == 0)
@@ -63,7 +71,7 @@ public class WinMenu : MonoBehaviour
     public void Menu()
     {
         PlayerPrefs.SetInt("death", 0);
-         Debug.Log(PlayerPrefs.GetInt("death"));
+        Debug.Log(PlayerPrefs.GetInt("death"));
         isWin = false;
         Timer.currentTime = 0f;
         Time.timeScale = 1f;

@@ -4812,6 +4812,7 @@ MonoBehaviour:
   trophy: {fileID: 1120400209}
   prefName: Level3
   Player: {fileID: 1117465152}
+  winClip: {fileID: 8300000, guid: 3bf6ba42c039a47ada6df278e11fb7c4, type: 3}
 --- !u!114 &1196774355
 MonoBehaviour:
   m_ObjectHideFlags: 0
