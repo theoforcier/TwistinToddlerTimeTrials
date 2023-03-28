@@ -21,6 +21,11 @@ public class LevelMenu : MonoBehaviour
         levelsPanel.SetActive(false);
     }
 
+    public void Experiment()
+    {
+        SceneManager.LoadScene("Experiment");
+    }
+
     public void Tutorial()
     {
         SceneManager.LoadScene("Tutorial");
