@@ -9,7 +9,8 @@ public class LevelMenu : MonoBehaviour
 {
     public GameObject levelsPanel;
     public TextMeshProUGUI record1, record2, record3;
-    public Button test;
+    public Button[] buttons;
+    private int currentLevel;
 
     private void Start()
     {
@@ -18,7 +19,10 @@ public class LevelMenu : MonoBehaviour
         record3.text = PlayerPrefs.GetFloat("Level3").ToString("0.000");
 
         // Sets up the respective event listeners for each button
-        InitalizeButton(test);
+        foreach (Button b in buttons)
+        {
+            InitalizeButton(b);
+        }
     }
 
     public void Back()
@@ -42,26 +46,12 @@ public class LevelMenu : MonoBehaviour
     {
         GameManager.instance.gameMode = "normal";
         GameManager.instance.level = int.Parse(button.GetComponentInChildren<TMP_Text>().text.Split()[1]);
-        button.onClick.AddListener(delegate { LoadLevel(GameManager.instance.level) ;});
+        var localLevel = GameManager.instance.level;
+        button.onClick.AddListener(delegate { LoadLevel(localLevel) ;});
     }
 
     public void Tutorial()
     {
         SceneManager.LoadScene("Tutorial");
-    }
-
-    public void Level1()
-    {
-        SceneManager.LoadScene("Level 1");
-    }
-
-    public void Level2()
-    {
-        SceneManager.LoadScene("Level 2");
-    }
-
-    public void Level3()
-    {
-        SceneManager.LoadScene("Level 3");
     }
 }
