@@ -1492,7 +1492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   linePrefab: {fileID: 5710389638708866097, guid: 6ca730561af739c47bec7750cb84d941, type: 3}
-  character: {fileID: 2975670473084053662, guid: fbd8ba1d6d44d4280aa423ae458a8c67, type: 3}
+  character: {fileID: 2975670474854773177}
 --- !u!4 &555246047
 Transform:
   m_ObjectHideFlags: 0
@@ -4097,6 +4097,10 @@ PrefabInstance:
     - target: {fileID: 3098221314673708710, guid: 16c5333b31362488f8d1aaec0536f21a, type: 3}
       propertyPath: m_Name
       value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098221314673708710, guid: 16c5333b31362488f8d1aaec0536f21a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3098221314673708712, guid: 16c5333b31362488f8d1aaec0536f21a, type: 3}
       propertyPath: m_RootOrder
