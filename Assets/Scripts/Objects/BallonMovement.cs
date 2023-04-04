@@ -25,6 +25,8 @@ public class BallonMovement : MonoBehaviour
     {
         player = GameObject.Find("Player").transform;
         render = GetComponent<SpriteRenderer>();
+        Debug.Log(ballon.position.x);
+        Debug.Log(baby.transform.position.x);
        
     }
 
@@ -34,30 +36,26 @@ public class BallonMovement : MonoBehaviour
         if(player)
         {
             Vector3 playerDirection = (player.position - transform.position).normalized;
-           // float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-           // ridge.rotation = angle;
+//            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+//            ridge.rotation = angle;
             direction = playerDirection;     
         }
 
-        if(baby.transform.position.y == ballon.position.y)
-        {
-            Debug.Log("Over");
-            FlipSprite();
-        }
 
 
-     
     }
 
     void FixedUpdate()
     {
         if(player)
         {
-            
             ridge.velocity = new Vector2(direction.x, direction.y) * movementSpeed;
         }
 
-
+        if (player.position.x == ballon.position.x)
+        {
+            FlipSprite();
+        }
     }
 
     public void FlipSprite()

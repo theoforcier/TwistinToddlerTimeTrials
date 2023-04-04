@@ -10,5 +10,6 @@ public class Bear : MonoBehaviour
         {
             WinMenu.isWin = true;
         }
+
     }
 }
