@@ -11,9 +11,7 @@ public class BallonMovement : MonoBehaviour
     Transform player;
     Transform ballon;
     Vector2 direction;
-    float oldPos = 0.0f; 
     private SpriteRenderer render;
-
 
     void Awake()
     {
@@ -25,9 +23,6 @@ public class BallonMovement : MonoBehaviour
     {
         player = GameObject.Find("Player").transform;
         render = GetComponent<SpriteRenderer>();
-        Debug.Log(ballon.position.x);
-        Debug.Log(baby.transform.position.x);
-       
     }
 
     // Update is called once per frame
@@ -36,13 +31,15 @@ public class BallonMovement : MonoBehaviour
         if(player)
         {
             Vector3 playerDirection = (player.position - transform.position).normalized;
-//            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-//            ridge.rotation = angle;
-            direction = playerDirection;     
+            direction = playerDirection;
+            if (direction.x < 0) {
+                render.flipX = false;
+            }
+            else
+            {
+                render.flipX = true;
+            }
         }
-
-
-
     }
 
     void FixedUpdate()
@@ -51,16 +48,5 @@ public class BallonMovement : MonoBehaviour
         {
             ridge.velocity = new Vector2(direction.x, direction.y) * movementSpeed;
         }
-
-        if (player.position.x == ballon.position.x)
-        {
-            FlipSprite();
-        }
-    }
-
-    public void FlipSprite()
-    {
-        render.flipX = !render.flipX;
-        
     }
 }
