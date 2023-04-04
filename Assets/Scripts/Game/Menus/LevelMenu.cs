@@ -17,7 +17,7 @@ public class LevelMenu : MonoBehaviour
         record2.text = PlayerPrefs.GetFloat("Level2").ToString("0.000");
         record3.text = PlayerPrefs.GetFloat("Level3").ToString("0.000");
 
-        // Sets up the respective event listeners for each button
+        // Sets up the respective event listeners for each level button
         InitalizeButton(test);
     }
 
