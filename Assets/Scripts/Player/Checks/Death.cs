@@ -16,14 +16,13 @@ public class Death : MonoBehaviour
     public TextMeshProUGUI deathText;
     public static int death = 0;
     public static List<Vector3> deathSpots = new List<Vector3>();
-    public GameObject platform;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         deathText.text = death.ToString();
-        rbp = platform.GetComponent<Rigidbody2D>();
+       
         
     }
 
@@ -57,7 +56,6 @@ public class Death : MonoBehaviour
         {
             isDead = true;
             death = death +1;
-            rbp.constraints = RigidbodyConstraints2D.FreezePositionX;
             PlayerPrefs.SetInt("death", death);
             AudioManager.instance.PlaySound(deathClip);
             deathSpots.Add(GameObject.FindGameObjectsWithTag("Player")[0].transform.position);
