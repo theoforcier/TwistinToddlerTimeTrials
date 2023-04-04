@@ -21,6 +21,15 @@ public class WinMenu : MonoBehaviour
     {
         if (isWin)
         {
+            // Marathon mode
+            if (GameManager.instance.gameMode == "marathon")
+            {
+                NextLevel();
+                return;
+            }
+
+
+            // Normal mode
             Time.timeScale = 0f;
             timeText.text = Timer.currentTime.ToString("0.000");
             deathCount.text = PlayerPrefs.GetInt("death").ToString();
@@ -55,7 +64,8 @@ public class WinMenu : MonoBehaviour
         isWin = false;
         Timer.currentTime = 0f;
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        GameManager.instance.level++;
+        SceneManager.LoadScene("Level " + GameManager.instance.level.ToString());
     }
 
     public void Restart()

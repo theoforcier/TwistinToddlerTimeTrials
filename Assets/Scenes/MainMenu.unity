@@ -326,6 +326,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &245601406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 245601408}
+  - component: {fileID: 245601407}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &245601407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245601406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6e748e0d41ddc44392a59c922325095, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameMode: 
+  level: 0
+--- !u!4 &245601408
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245601406}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 614.14246, y: 245.83441, z: -5.1126156}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &427312672
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,7 +648,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Experiement
+  m_text: Marathon
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: faa2c43bf9bc743d695a7ccc698b8616, type: 2}
   m_sharedMaterial: {fileID: -5423054773714351808, guid: faa2c43bf9bc743d695a7ccc698b8616, type: 2}
@@ -1304,7 +1350,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 998818325}
         m_TargetAssemblyTypeName: LevelMenu, Assembly-CSharp
-        m_MethodName: Experiment
+        m_MethodName: Marathon
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1774,6 +1820,7 @@ MonoBehaviour:
   record1: {fileID: 1925504693}
   record2: {fileID: 1517589816}
   record3: {fileID: 596264671}
+  test: {fileID: 1433229894}
 --- !u!1 &1111775441
 GameObject:
   m_ObjectHideFlags: 0
@@ -2401,7 +2448,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 998818325}
         m_TargetAssemblyTypeName: LevelMenu, Assembly-CSharp
-        m_MethodName: Level1
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3138,7 +3185,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1988924210
 RectTransform:
   m_ObjectHideFlags: 0
