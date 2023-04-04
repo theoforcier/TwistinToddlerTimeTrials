@@ -6,7 +6,7 @@ using System.Linq;
 public class Line : MonoBehaviour
 {
     public LineRenderer lineRenderer;
-
+    public float fadeSpeed;
     List<Vector2> points;
 
     public void UpdateLine(Vector2 position){
@@ -26,5 +26,13 @@ public class Line : MonoBehaviour
 
         lineRenderer.positionCount = points.Count;
         lineRenderer.SetPosition(points.Count - 1, point);
+    }
+
+
+    void Update(){
+        Color gradient = lineRenderer.material.color;
+        float fadeAmount = gradient.a - (fadeSpeed * Time.deltaTime);
+        gradient = new Color(gradient.r, gradient.g, gradient.b, fadeAmount);
+        lineRenderer.material.color = gradient;
     }
 }

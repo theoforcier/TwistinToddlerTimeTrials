@@ -15,7 +15,7 @@ public class LineGenerator : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (jumpController.isJumping){
             activeLine = null;
@@ -41,11 +41,6 @@ public class LineGenerator : MonoBehaviour
                     temp.y += Random.Range(0f, .5f);
                     temp.x += Random.Range(-.5f, .5f);
                     activeLine.UpdateLine(temp);
-                    if (Random.Range(0, 2) == 0){
-                        linePositions.y += Random.Range(0f, .5f);
-                        linePositions.x += Random.Range(-.5f, .5f);
-                        activeLine.UpdateLine(linePositions);
-                    }
                 }
 
                 linePositions = character.transform.position;
