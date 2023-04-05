@@ -7969,10 +7969,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1242016641}
     - target: {fileID: 2975670473084053652, guid: fbd8ba1d6d44d4280aa423ae458a8c67, type: 3}
-      propertyPath: deathCount
-      value: 
-      objectReference: {fileID: 1242016640}
-    - target: {fileID: 2975670473084053652, guid: fbd8ba1d6d44d4280aa423ae458a8c67, type: 3}
       propertyPath: deathLocation
       value: 
       objectReference: {fileID: 1242016640}
