@@ -118,6 +118,7 @@ public class WinMenu : MonoBehaviour
     public void Restart()
     {
         PlayerPrefs.SetInt("death", 0);
+        Player.GetComponent<Death>().ClearDeaths();
         isWin = false;
         gameUI.SetActive(true);
         Timer.instance.currentTime = 0f;
@@ -128,6 +129,7 @@ public class WinMenu : MonoBehaviour
     public void Menu()
     {
         PlayerPrefs.SetInt("death", 0);
+        Player.GetComponent<Death>().ClearDeaths();
         isWin = false;
         gameUI.SetActive(false);
         Timer.instance.currentTime = 0f;
