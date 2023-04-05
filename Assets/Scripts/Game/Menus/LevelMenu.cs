@@ -47,6 +47,7 @@ public class LevelMenu : MonoBehaviour
     {
         Timer.instance.timing = true;
         SceneManager.LoadScene("Level " + level.ToString());
+        GameManager.instance.level = level;
     }
 
     public void InitalizeButton(Button button)

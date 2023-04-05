@@ -5384,7 +5384,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1804957200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5523,7 +5523,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1853222143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6519,7 +6519,7 @@ MonoBehaviour:
   upwardMovementMultiplier: 3
   coyoteTime: 0.4
   jumpBufferTime: 0.3
-  jumpClip: {fileID: 0}
+  jumpClip: {fileID: 8300000, guid: 8fa7f6f5f7f484f009e68a5ae02e9168, type: 3}
   isJumping: 0
 --- !u!95 &2057115943
 Animator:
