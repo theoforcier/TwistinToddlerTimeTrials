@@ -161,7 +161,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &2975670473084053658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +198,7 @@ MonoBehaviour:
   upwardMovementMultiplier: 3
   coyoteTime: 0.4
   jumpBufferTime: 0.3
+  jumpClip: {fileID: 8300000, guid: 8fa7f6f5f7f484f009e68a5ae02e9168, type: 3}
   isJumping: 0
 --- !u!114 &2975670473084053648
 MonoBehaviour:
