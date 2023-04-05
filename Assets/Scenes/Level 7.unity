@@ -2914,6 +2914,10 @@ PrefabInstance:
       propertyPath: gameUI
       value: 
       objectReference: {fileID: 176287457}
+    - target: {fileID: 2745725984192628954, guid: e5d72e03ed5bb834eace79a2b918030e, type: 3}
+      propertyPath: prefName
+      value: Level7
+      objectReference: {fileID: 0}
     - target: {fileID: 2745725984192628955, guid: e5d72e03ed5bb834eace79a2b918030e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -5878,6 +5882,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 176287458}
     m_Modifications:
+    - target: {fileID: 4128927987852774355, guid: 84dfe355662e9a54ebf197075481eb9d, type: 3}
+      propertyPath: prefName
+      value: Level7
+      objectReference: {fileID: 0}
     - target: {fileID: 5034548688386269728, guid: 84dfe355662e9a54ebf197075481eb9d, type: 3}
       propertyPath: prefName
       value: Level2
