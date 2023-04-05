@@ -10,6 +10,8 @@ public class LevelMenu : MonoBehaviour
     public GameObject levelsPanel;
     public TextMeshProUGUI record1, record2, record3;
     public Button[] buttons;
+    public Button marathonButton;
+    public Button tutorialButton;
     private int currentLevel;
 
     private void Start()
@@ -23,6 +25,9 @@ public class LevelMenu : MonoBehaviour
         {
             InitalizeButton(b);
         }
+
+        marathonButton.onClick.AddListener(Marathon);
+        tutorialButton.onClick.AddListener(Tutorial);
     }
 
     public void Back()
@@ -34,11 +39,13 @@ public class LevelMenu : MonoBehaviour
     {
         GameManager.instance.gameMode = "marathon";
         GameManager.instance.level = 1;
+        Timer.instance.totalTime = 0;
         LoadLevel(GameManager.instance.level);
     }
 
     public void LoadLevel(int level)
     {
+        Timer.instance.timing = true;
         SceneManager.LoadScene("Level " + level.ToString());
     }
 

@@ -8,12 +8,10 @@ public class Death : MonoBehaviour
 {
     public bool isDead = false;
     private Rigidbody2D rb;
-    private Rigidbody2D rbp;
     private Animator animator; 
     public AudioClip deathClip;
     public GameObject deathLocation;
-    public GameObject winScreen;
-    public TextMeshProUGUI deathText;
+    public TextMeshProUGUI deathCount;
     public static int death = 0;
     public static List<Vector3> deathSpots = new List<Vector3>();
 
@@ -21,16 +19,13 @@ public class Death : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        deathText.text = death.ToString();
-       
-        
+        deathCount.text = death.ToString();
     }
 
-    private void Update () {
-        if (winScreen.activeSelf){
-            deathSpots.Clear();
-            death = 0;
-        }
+    public void ClearDeaths ()
+    {
+        deathSpots.Clear();
+        death = 0;
     }
 
 
@@ -66,7 +61,6 @@ public class Death : MonoBehaviour
                 duplicate.transform.position = x;
                 duplicate.SetActive(true);
             }
-            
 
         }
     }
@@ -74,7 +68,7 @@ public class Death : MonoBehaviour
     public void ResetLevel()
     {
         Time.timeScale = 1;
-        Timer.currentTime = 0f;
+        Timer.instance.currentTime = 0f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         
     }

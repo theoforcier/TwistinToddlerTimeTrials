@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     public string gameMode;
     public int level;
+    public int totalLevels;
 
     private void Awake()
     {

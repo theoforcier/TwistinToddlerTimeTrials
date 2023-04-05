@@ -39,14 +39,14 @@ public class PauseMenu : MonoBehaviour
 
     public void Restart()
     {
-        Timer.currentTime = 0f;
+        Timer.instance.currentTime = 0f;
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void Menu()
     {
-        Timer.currentTime = 0f;
+        Timer.instance.currentTime = 0f;
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }

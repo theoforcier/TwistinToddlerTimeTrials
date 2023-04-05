@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 5034548688386269735}
   - component: {fileID: 5034548688386269734}
   - component: {fileID: 5034548688386269729}
-  - component: {fileID: 5034548688386269728}
+  - component: {fileID: 4128927987852774355}
   m_Layer: 5
   m_Name: TimeCanvas
   m_TagString: Untagged
@@ -240,7 +240,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &5034548688386269728
+--- !u!114 &4128927987852774355
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5034548688386269731}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f64efb8b95304bbab521fa982752659, type: 3}
+  m_Script: {fileID: 11500000, guid: bea91e24680251e48a67af68de90284e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 5034548688749723184}

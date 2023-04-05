@@ -13,13 +13,19 @@ public class GhostPlayer : MonoBehaviour
     private int index2;
     private Animator animator;
 
-    private void Awake()
+    private void Start()
     {
+        if (GameManager.instance.gameMode == "marathon")
+        {
+            this.gameObject.SetActive(false);
+            return;
+        }
+
         animator = GetComponent<Animator>();
-        ghost = AssetDatabase.LoadAssetAtPath<Ghost>("Assets/ScriptableObjects/GhostTrials/" + winMenu.prefName + ".asset");
+        ghost = Resources.Load<Ghost>("GhostTrials/" + winMenu.prefName);
         timeValue = 0;
 
-        if (!ghost)
+        if (ghost.timeStamp.Count == 0)
         {
             this.gameObject.SetActive(false);
         }
@@ -28,12 +34,15 @@ public class GhostPlayer : MonoBehaviour
 
     private void Update()
     {
-        timeValue += Time.deltaTime;
-
-        if (ghost)
+        if (GameManager.instance.gameMode == "normal")
         {
-            GetIndex();
-            SetTransform();
+            timeValue += Time.deltaTime;
+
+            if (ghost)
+            {
+                GetIndex();
+                SetTransform();
+            }
         }
     }
 

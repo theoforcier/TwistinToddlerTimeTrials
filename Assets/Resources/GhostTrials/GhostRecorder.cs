@@ -21,9 +21,9 @@ public class GhostRecorder : MonoBehaviour
         timer += Time.deltaTime;
         timeValue += Time.deltaTime;
 
-        if (ghost.isRecording & timer >= 1/ghost.recordFrequency)
+        if (GameManager.instance.gameMode == "normal" && ghost.isRecording && timer >= 1/ghost.recordFrequency)
         {
-            ghost.timeStamp.Add(Timer.currentTime);
+            ghost.timeStamp.Add(Timer.instance.currentTime);
             ghost.position.Add(this.transform.localPosition);
 
             // animations

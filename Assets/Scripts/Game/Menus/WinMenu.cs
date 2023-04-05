@@ -9,6 +9,7 @@ public class WinMenu : MonoBehaviour
 {
     public static bool isWin = false;
     public GameObject winMenuUI;
+    public GameObject gameUI;
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI deathCount;    
     public GameObject trophy;
@@ -24,45 +25,91 @@ public class WinMenu : MonoBehaviour
             // Marathon mode
             if (GameManager.instance.gameMode == "marathon")
             {
-                NextLevel();
-                return;
+                if (GameManager.instance.level < GameManager.instance.totalLevels)
+                {
+                    Player.GetComponent<Death>().ClearDeaths();
+                    NextLevel();
+                    return;
+                }
+
+                else
+                {
+                    if (Timer.instance.timing)
+                    { 
+                        Timer.instance.totalTime += Timer.instance.currentTime; // this is normally done in NextLevel(), so we need to call it here for the level
+                        Timer.instance.timing = false;
+                    }
+
+                    Time.timeScale = 0f;
+                    timeText.text = Timer.instance.totalTime.ToString("0.000");
+
+                    // Playing audio clip
+                    if (!clipPlayed)
+                    {
+                        AudioManager.instance.PlaySound(winClip);
+                        clipPlayed = true;
+                    }
+
+                    // Setting high scores
+                    if (Timer.instance.totalTime < PlayerPrefs.GetFloat("marathon") || PlayerPrefs.GetFloat("marathon") == 0)
+                    {
+                        PlayerPrefs.SetFloat("marathon", Timer.instance.totalTime);
+                        trophy.SetActive(true);
+                    }
+                }
             }
 
-
-            // Normal mode
-            Time.timeScale = 0f;
-            timeText.text = Timer.currentTime.ToString("0.000");
-            deathCount.text = PlayerPrefs.GetInt("death").ToString();
-
-            // Playing audio clip
-            if (!clipPlayed) {
-                AudioManager.instance.PlaySound(winClip);
-                clipPlayed = true;
-            }
-
-            // Setting high scores
-            if (Timer.currentTime < PlayerPrefs.GetFloat(prefName) || PlayerPrefs.GetFloat(prefName) == 0)
+            else
             {
-                PlayerPrefs.SetFloat(prefName, Timer.currentTime);
-                Player.GetComponent<GhostRecorder>().ghost.isRecording = false;
-                AssetDatabase.Refresh();
+                // Normal mode
+                Time.timeScale = 0f;
+                timeText.text = Timer.instance.currentTime.ToString("0.000");
+                deathCount.text = PlayerPrefs.GetInt("death").ToString();
 
-                Ghost newGhost = Instantiate(Player.GetComponent<GhostRecorder>().ghost);
-                AssetDatabase.DeleteAsset("Assets/ScriptableObjects/GhostTrials/" + prefName + ".asset");
-                AssetDatabase.CreateAsset(newGhost, "Assets/ScriptableObjects/GhostTrials/" + prefName + ".asset");
-                trophy.SetActive(true);
+                // Playing audio clip
+                if (!clipPlayed)
+                {
+                    AudioManager.instance.PlaySound(winClip);
+                    clipPlayed = true;
+                }
+
+                // Setting high scores
+                if (Timer.instance.currentTime < PlayerPrefs.GetFloat(prefName) || PlayerPrefs.GetFloat(prefName) == 0)
+                {
+                    PlayerPrefs.SetFloat(prefName, Timer.instance.currentTime);
+                    Player.GetComponent<GhostRecorder>().ghost.isRecording = false;
+
+                    Ghost newGhost = Instantiate(Player.GetComponent<GhostRecorder>().ghost);
+                    Ghost levelGhost = Resources.Load<Ghost>("GhostTrials/" + prefName);
+
+                    levelGhost.isJumping = newGhost.isJumping;
+                    levelGhost.isRecording = newGhost.isRecording;
+                    levelGhost.onWall = newGhost.onWall;
+                    levelGhost.position = newGhost.position;
+                    levelGhost.recordFrequency = newGhost.recordFrequency;
+                    levelGhost.speed = newGhost.speed;
+                    levelGhost.spriteFliped = newGhost.spriteFliped;
+                    levelGhost.timeStamp = newGhost.timeStamp;
+                    trophy.SetActive(true);
+                }
             }
 
             winMenuUI.SetActive(true);
+            gameUI.SetActive(false);
         }
     }
 
     public void NextLevel()
     {
         PlayerPrefs.SetInt("death", 0);
-        Debug.Log(PlayerPrefs.GetInt("death"));
+        Player.GetComponent<Death>().ClearDeaths();
         isWin = false;
-        Timer.currentTime = 0f;
+        gameUI.SetActive(true);
+
+        if (GameManager.instance.gameMode == "marathon")
+            Timer.instance.totalTime += Timer.instance.currentTime;
+
+        Timer.instance.currentTime = 0f;
         Time.timeScale = 1f;
         GameManager.instance.level++;
         SceneManager.LoadScene("Level " + GameManager.instance.level.ToString());
@@ -71,9 +118,9 @@ public class WinMenu : MonoBehaviour
     public void Restart()
     {
         PlayerPrefs.SetInt("death", 0);
-        Debug.Log(PlayerPrefs.GetInt("death"));
         isWin = false;
-        Timer.currentTime = 0f;
+        gameUI.SetActive(true);
+        Timer.instance.currentTime = 0f;
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -81,9 +128,9 @@ public class WinMenu : MonoBehaviour
     public void Menu()
     {
         PlayerPrefs.SetInt("death", 0);
-        Debug.Log(PlayerPrefs.GetInt("death"));
         isWin = false;
-        Timer.currentTime = 0f;
+        gameUI.SetActive(false);
+        Timer.instance.currentTime = 0f;
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
