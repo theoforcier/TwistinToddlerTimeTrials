@@ -490,6 +490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winMenuUI: {fileID: 1417864069}
+  gameUI: {fileID: 0}
   timeText: {fileID: 1435591512}
   deathCount: {fileID: 662927512}
   trophy: {fileID: 77751258}
@@ -5954,6 +5955,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba2ae33c072a1bd4b9bae828670add31, type: 3}
+--- !u!1 &1716966412 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4316390307188173930, guid: ba2ae33c072a1bd4b9bae828670add31, type: 3}
+  m_PrefabInstance: {fileID: 1716966411}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1716966413 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4316390305270031564, guid: ba2ae33c072a1bd4b9bae828670add31, type: 3}
+  m_PrefabInstance: {fileID: 1716966411}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1738685963 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9138888762414844648, guid: 617991963b795f74e98ccc0372cc5192, type: 3}
@@ -7472,9 +7489,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1417864069}
     - target: {fileID: 2975670473084053652, guid: fbd8ba1d6d44d4280aa423ae458a8c67, type: 3}
+      propertyPath: deathCount
+      value: 
+      objectReference: {fileID: 1716966413}
+    - target: {fileID: 2975670473084053652, guid: fbd8ba1d6d44d4280aa423ae458a8c67, type: 3}
       propertyPath: deathLocation
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1716966412}
     - target: {fileID: 2975670473084053656, guid: fbd8ba1d6d44d4280aa423ae458a8c67, type: 3}
       propertyPath: m_RootOrder
       value: 3

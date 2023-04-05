@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class LevelMenu : MonoBehaviour
 {
     public GameObject levelsPanel;
-    public TextMeshProUGUI record1, record2, record3;
+    public TextMeshProUGUI record1, record2, record3, record4, record5, record6, record7, record8, record9;
     public Button[] buttons;
     public Button marathonButton;
     public Button tutorialButton;
@@ -19,6 +19,12 @@ public class LevelMenu : MonoBehaviour
         record1.text = PlayerPrefs.GetFloat("Level1").ToString("0.000");
         record2.text = PlayerPrefs.GetFloat("Level2").ToString("0.000");
         record3.text = PlayerPrefs.GetFloat("Level3").ToString("0.000");
+        record4.text = PlayerPrefs.GetFloat("Level4").ToString("0.000");
+        record5.text = PlayerPrefs.GetFloat("Level5").ToString("0.000");
+        record6.text = PlayerPrefs.GetFloat("Level6").ToString("0.000");
+        record7.text = PlayerPrefs.GetFloat("Level7").ToString("0.000");
+        record8.text = PlayerPrefs.GetFloat("Level8").ToString("0.000");
+        record9.text = PlayerPrefs.GetFloat("Level9").ToString("0.000");
 
         // Sets up the respective event listeners for each button
         foreach (Button b in buttons)
