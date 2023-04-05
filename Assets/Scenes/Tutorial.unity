@@ -4045,6 +4045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winMenuUI: {fileID: 1052464073}
+  gameUI: {fileID: 0}
   timeText: {fileID: 1239272676}
   deathCount: {fileID: 1018700909}
   trophy: {fileID: 455063470}
@@ -5535,9 +5536,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f64efb8b95304bbab521fa982752659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerText: {fileID: 973902412}
-  bestText: {fileID: 2043279394}
-  prefName: Tutorial
+  totalTime: 0
+  currentTime: 0
+  timing: 0
 --- !u!114 &1853222144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6540,6 +6541,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &2057115944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6585,8 +6587,7 @@ MonoBehaviour:
   isDead: 0
   deathClip: {fileID: 8300000, guid: 79e20643a753f4b168a456894cbcdc17, type: 3}
   deathLocation: {fileID: 688177773}
-  winScreen: {fileID: 1052464073}
-  deathText: {fileID: 1547293624}
+  deathCount: {fileID: 1547293624}
 --- !u!61 &2057115949
 BoxCollider2D:
   m_ObjectHideFlags: 0

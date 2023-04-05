@@ -15,7 +15,7 @@ public class GhostPlayer : MonoBehaviour
 
     private void Start()
     {
-        if (GameManager.instance.gameMode == "marathon")
+        if (GameManager.instance.gameMode != "normal")
         {
             this.gameObject.SetActive(false);
             return;
