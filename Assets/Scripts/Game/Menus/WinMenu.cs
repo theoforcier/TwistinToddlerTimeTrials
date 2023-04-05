@@ -112,6 +112,9 @@ public class WinMenu : MonoBehaviour
         Timer.instance.currentTime = 0f;
         Time.timeScale = 1f;
         GameManager.instance.level++;
+        if (GameManager.instance.level == 10)
+            GameManager.instance.level = 1;
+
         SceneManager.LoadScene("Level " + GameManager.instance.level.ToString());
     }
 
