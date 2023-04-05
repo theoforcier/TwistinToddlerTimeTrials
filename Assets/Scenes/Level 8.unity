@@ -5220,6 +5220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winMenuUI: {fileID: 1976876063}
+  gameUI: {fileID: 0}
   timeText: {fileID: 163693224}
   deathCount: {fileID: 326026585}
   trophy: {fileID: 1120400209}
