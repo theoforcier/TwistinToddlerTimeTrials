@@ -12,6 +12,8 @@ public class Jump : MonoBehaviour
     [SerializeField, Range(0f, 0.5f)] private float coyoteTime = 0.2f;
     [SerializeField, Range(0f, 0.5f)] private float jumpBufferTime = 0.2f;
 
+    public AudioClip jumpClip;
+
     private Rigidbody2D rb;
     private Animator animator;
     private CollisionData collisionData;
@@ -92,6 +94,9 @@ public class Jump : MonoBehaviour
         // If jump is available, calculate jump speed and apply to velocity
         if (coyoteCounter > 0 || (jumpPhase < maxAirJumps && isJumping))
         {
+            // Jump sound
+            AudioManager.instance.PlaySound(jumpClip);
+
             if (isJumping)
             {
                 jumpPhase += 1;
